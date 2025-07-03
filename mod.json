@@ -1,0 +1,20 @@
+{
+	"geode": "4.5.0",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "nwo5.player_swap",
+	"name": "Player Swap :3",
+	"version": "v1.0.0",
+	"developer": "Nwo5",
+	"description": "",
+	"dependencies": {
+		"dankmeme.globed2": {
+			"importance": "required",
+			"version": ">=1.8.0"
+		}
+	}
+}

@@ -4,8 +4,6 @@
 using namespace geode::prelude;
 using namespace PlayerSwap;
 
-static auto syncedStart = std::chrono::steady_clock::now();
-
 void PlayerSwap::updateTime() {
     size_t playersOnLevel = globed::player::playersOnLevel().unwrap() + 1;
     if (lastPlayersOnLevel != playersOnLevel) {

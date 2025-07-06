@@ -4,6 +4,7 @@ namespace PlayerSwap {
     inline bool enabled = true;
 
     inline int syncedTime = 0;
+    inline auto syncedStart = std::chrono::steady_clock::now();
 
     inline bool lockSwapUpdates = false;
     inline int currentPlayer;

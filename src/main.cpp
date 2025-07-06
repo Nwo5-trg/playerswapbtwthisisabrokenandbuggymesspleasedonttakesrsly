@@ -5,6 +5,7 @@
 #include <dankmeme.globed2/include/general.hpp>
 #include <dankmeme.globed2/include/player.hpp>
 #include <dankmeme.globed2/include/net.hpp>
+#include <Geode/utils/web.hpp>
 
 using namespace geode::prelude;
 
@@ -12,6 +13,8 @@ class $modify(Play, PlayLayer) {
     struct Fields {
         CCLabelBMFont* timeLabel;
         CCLabelBMFont* playerIDLabel;
+        EventListener<web::WebTask> listener;
+        int apiTrys = 0;
     };
 
     bool init(GJGameLevel* level, bool useReplay, bool dontCreateObjects) {
@@ -42,9 +45,30 @@ class $modify(Play, PlayLayer) {
         this->addChild(playerIDLabel);
         m_fields->playerIDLabel = playerIDLabel;
 
-        CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(Play::updateTime), this, 0.0f, false);
+        m_fields->listener.bind([this] (web::WebTask::Event* event) { // actual toothpicks vro
+            if (web::WebResponse* res = event->getValue()) {
+                if (res->ok()) {
+                    auto json = res->json().unwrap();
+                    PlayerSwap::syncedTime = json["unixtime"].asInt().unwrap();
+                    CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(Play::updateTime), this, 0.0f, false);
+                } else {
+                    makeReq();
+                }
+            }
+        });
+
+        makeReq();
 
         return true;
+    }
+
+    void makeReq() {
+        if (m_fields->apiTrys++ > 10) {
+            Notification::create("failed to get synced time 3:");
+            return;
+        }
+        auto req = web::WebRequest();
+        m_fields->listener.setFilter(req.get("http://worldtimeapi.org/api/timezone/America/New_York"));
     }
 
     void updateTime(float dt) {

@@ -3,6 +3,8 @@
 namespace PlayerSwap {
     inline bool enabled = true;
 
+    inline int syncedTime = 0;
+
     inline bool lockSwapUpdates = false;
     inline int currentPlayer;
     inline float timeBetweenSwaps = 10.0f;

@@ -184,7 +184,7 @@ class $modify(Pause, PauseLayer) {
     }
 
     void swapPlayers(int id1, int id2) {
-        if (PlayerSwap::playerID == id2) {
+        if (PlayerSwap::playerID == id2 && PlayerSwap::playerIDs.size() > 1) {
             onResume(nullptr);
             static_cast<Play*>(PlayLayer::get())->swapPlayers(id1, id2);
         }

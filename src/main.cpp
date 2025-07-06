@@ -50,6 +50,7 @@ class $modify(Play, PlayLayer) {
                 if (res->ok()) {
                     auto json = res->json().unwrap();
                     PlayerSwap::syncedTime = json["unixtime"].asInt().unwrap();
+                    PlayerSwap::syncedStart = std::chrono::steady_clock::now();
                     log::error("{}", PlayerSwap::syncedTime);
                     CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(Play::updateTime), this, 0.0f, false);
                 } else {

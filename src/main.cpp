@@ -24,6 +24,7 @@ class $modify(Play, PlayLayer) {
             Notification::create("player swap :3 : globed is not enabled 3:", NotificationIcon::Error);
             return true;
         }
+        PlayerSwap::timeBetweenSwaps = Mod::get()->getSettingValue<bool>("loop-time");
 
         PlayerSwap::playerID = GJAccountManager::get()->m_accountID;
 

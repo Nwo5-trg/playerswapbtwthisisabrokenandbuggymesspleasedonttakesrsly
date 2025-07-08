@@ -16,5 +16,12 @@
 			"importance": "required",
 			"version": ">=1.8.0"
 		}
+	},
+	"settings": {
+		"loop-time": {
+			"type": "float",
+			"name": "Loop Time (has to be teh same across clients",
+			"default": 60
+		}
 	}
 }

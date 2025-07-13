@@ -59,7 +59,7 @@ void setupInfoLabels(CCLabelBMFont*& m_timeLabel, CCLabelBMFont*& m_currentPlaye
 
     auto currentPlayerLabel = CCLabelBMFont::create("", "bigFont.fnt");
     currentPlayerLabel->setScale(0.5f);
-    currentPlayerLabel->setPosition(winSize.width, winSize.height - 30);
+    currentPlayerLabel->setPosition(winSize.width, winSize.height - 32.5f);
     currentPlayerLabel->setOpacity(100);
     currentPlayerLabel->setAnchorPoint(ccp(1.0f, 1.0f));
     parent->addChild(currentPlayerLabel);
@@ -67,7 +67,7 @@ void setupInfoLabels(CCLabelBMFont*& m_timeLabel, CCLabelBMFont*& m_currentPlaye
 
     auto nextPlayerLabel = CCLabelBMFont::create("", "bigFont.fnt");
     nextPlayerLabel->setScale(0.4f);
-    nextPlayerLabel->setPosition(winSize.width, winSize.height - 55);
+    nextPlayerLabel->setPosition(winSize.width, winSize.height - 50);
     nextPlayerLabel->setOpacity(75);
     nextPlayerLabel->setAnchorPoint(ccp(1.0f, 1.0f));
     parent->addChild(nextPlayerLabel);

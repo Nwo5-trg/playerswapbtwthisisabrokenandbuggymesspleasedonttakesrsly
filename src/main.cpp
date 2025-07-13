@@ -33,6 +33,7 @@ class $modify(Play, PlayLayer) {
         PlayerSwap::timeBetweenSwaps = Mod::get()->getSettingValue<double>("loop-time");
 
         PlayerSwap::playerID = GJAccountManager::get()->m_accountID;
+        log::error("account id is: {} :3c", PlayerSwap::playerID);
 
         PlayerSwap::p1 = nullptr; PlayerSwap::p2 = nullptr;
         PlayerSwap::p1 = m_player1; PlayerSwap::p2 = m_player2;

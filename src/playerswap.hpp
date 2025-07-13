@@ -8,6 +8,7 @@ namespace PlayerSwap {
 
     inline bool lockSwapUpdates = false;
     inline int currentPlayer;
+    inline int nextPlayer;
     inline float timeBetweenSwaps = 10.0f;
     inline float timeUntilSwap = 0.0f;
     inline int playerOffset = 0;
@@ -22,5 +23,4 @@ namespace PlayerSwap {
 
     void updateTime();
     void updatePlayerIDsVector();
-    std::string formatTime(float time);
 }

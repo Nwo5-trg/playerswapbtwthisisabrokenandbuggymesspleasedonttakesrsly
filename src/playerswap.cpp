@@ -25,6 +25,7 @@ void PlayerSwap::updateTime() {
     timeUntilSwap = nextSwap - currentTime;
 
     currentPlayer = playerIDs[PlayerSwap::index];
+    nextPlayer = playerIDs[(PlayerSwap::index + 1) % playerIDs.size()];
 }
 
 void PlayerSwap::updatePlayerIDsVector() {
@@ -33,9 +34,3 @@ void PlayerSwap::updatePlayerIDsVector() {
     playerIDs.push_back(playerID);
     std::sort(playerIDs.begin(), playerIDs.end());
 }
-
-std::string PlayerSwap::formatTime(float time) {
-    int minutes = std::floor(time / 60.0f);
-    int seconds = std::ceil(time - (minutes * 60));
-    return fmt::format("{}:{:02}", minutes, seconds);
-};

@@ -20,7 +20,7 @@
 	"settings": {
 		"loop-time": {
 			"type": "float",
-			"name": "Loop Time (has to be teh same across clients",
+			"name": "Loop Time (has to be the same across clients",
 			"default": 60
 		}
 	}
